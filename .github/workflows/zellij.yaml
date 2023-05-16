@@ -1,0 +1,20 @@
+name: zellij
+on:
+  push:
+    paths:
+      - .github/workflows/zellij.yml
+      - "dockerfiles/zellij/**"
+      - .github/workflows/reusable.yml
+  pull_request:
+    paths:
+      - .github/workflows/zellij.yml
+      - "dockerfiles/zellij/**"
+      - .github/workflows/reusable.yml
+
+jobs:
+  zellij:
+    uses: ./.github/workflows/reusable.yml
+    secrets: inherit
+    with:
+      name: zellij
+      version: v0.36.0
