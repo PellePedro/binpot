@@ -1,7 +1,7 @@
 ARG ALPINE_VERSION=3.17
 ARG BUILDPLATFORM=linux/amd64
 
-
-FROM --platform=${BUILDPLATFORM} alpine:${ALPINE_VERSION} AS build
+FROM --platform=${BUILDPLATFORM} alpine:${ALPINE_VERSION}
+RUN apk add curl git
 
 
