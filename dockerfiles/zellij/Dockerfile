@@ -1,7 +1,4 @@
-ARG ALPINE_VERSION=3.17
-ARG BUILDPLATFORM=linux/amd64
+FROM pellepedro/binpot:zellij as zellij
 
-FROM --platform=${BUILDPLATFORM} alpine:${ALPINE_VERSION}
-RUN apk add curl git
-
-
+FROM alpine:latest
+COPY --from=zellij /zellij /user/local/bin/zellij
